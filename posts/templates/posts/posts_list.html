@@ -1,0 +1,18 @@
+{% extends "posts/base.html" %}
+{% block content %}
+
+<h1>Post List <small><a href="/posts/create">Create</a></small> </h1>
+{% for post in posts %}
+<div class="row">
+  <img src={{post.image.url}} class="img-thumbnail" alt="photo">
+</div>
+
+<div>
+
+  <h2> <a href={{ post.get_absolute_url }}>{{post.title}}</a></h2> 
+  <div><small>Written by {{post.author}}</small></div>
+  <p>{{post.description}}</p>
+  <hr>
+</div>
+{% endfor %}
+{% endblock content %}
